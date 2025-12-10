@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "[EXT] Force IA Privacy mode",
+  "version": "1.0.0",
+  "update_url": "HTTP_LOCATION_UPDATE_FILE",
+  "key" : "YOUR_PUBLIC_KEY_TO_SIGN_CRX",
+  "description": "Sécurisation des IA Générative.",
+  "incognito": "spanning",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.ai/*",
+        "https://chatgpt.com/*",
+        "https://gemini.google.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://gamma.app/*"
+      ],
+      "js": ["config.js", "hide-chatgpt.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "notifications",
+    "scripting",
+    "declarativeNetRequest"
+  ]
+}
